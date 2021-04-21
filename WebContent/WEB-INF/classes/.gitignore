@@ -2,3 +2,5 @@
 /db/
 /model/
 /svc/
+/.gitignore.txt
+/.ignore
