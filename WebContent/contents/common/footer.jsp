@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+	
+</style>
 <title>Insert title here</title>
 </head>
 <body>
 
 <footer style="margin-top:-200px;">
         <div class="footer-logo">
-            <img src="../cinema/images/Tm_rogo_02 .png">
+            <img src="<%= request.getContextPath() %>/contents/cinema/images/Tm_rogo_02 .png">
         </div>
         <div class="footer-write">
                 <span style="padding: 10, 0, 0, 0; color: white; font-size: 9pt; line-height: 20px" align="center" valign="top">

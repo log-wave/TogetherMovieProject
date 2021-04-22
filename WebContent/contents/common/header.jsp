@@ -160,7 +160,7 @@ ul{list-style:none;}
     <!-- 모든 파일에 들어가는 헤더파일 -->
     <!-- 마스터 테스트 전용 주석 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../../index.jsp"><img src="<c:url value='/' />/contents/cinema/images/Tm_rogo_02 .png" width="200px" height="200px"></a>
+            <a class="navbar-brand" href="<%= request.getContextPath() %>/index.jsp"><img src="<%= request.getContextPath() %>/contents/cinema/images/Tm_rogo_02 .png" width="200px" height="200px"></a>
       <!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button> -->
@@ -177,9 +177,9 @@ ul{list-style:none;}
                 <li class="dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">맛집극장<b class="caret"></b></a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<c:url value='/' />contents/cinema/cinema.jsp">친구</a>
-                    <a class="dropdown-item" href="<c:url value='/' />contents/cinema/couple.jsp">연인</a>
-                    <a class="dropdown-item" href="<c:url value='/' />contents/cinema/solo.jsp">혼자</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath() %>/contents/cinema/cinema.jsp">친구</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath() %>/contents/cinema/couple.jsp">연인</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath() %>/contents/cinema/solo.jsp">혼자</a>
                   </div> 
                 </li>
                 <li class="dropdown">
@@ -187,11 +187,11 @@ ul{list-style:none;}
                   <div class="dropdown-menu">
                   
                     <a class="dropdown-item" href="#">자유게시판</a>
-                    <a class="dropdown-item" href="<c:url value='/' />contents/board/board.jsp">만남의광장</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath() %>/contents/board/board.jsp">만남의광장</a>
                   </div> 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<c:url value='/' />contents/goods/goods.jsp">굿즈</a>
+                  <a class="nav-link" href="<%= request.getContextPath() %>/contents/goods/goods.jsp">굿즈</a>
                 </li>
                 <li>
 	                <form class="navSearch">
