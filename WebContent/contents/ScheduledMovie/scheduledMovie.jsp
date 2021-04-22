@@ -12,68 +12,9 @@
 <link rel="stylesheet" type="text/css" href="scheduledMovie.css?ver=1.1"/>
 </head>
 <body>
-     <header>
-    <c:if test="${empty sessionScope.loginUser}">
-       <ul class="header-bar">
-          	<li class="header-bar__menu"><a href="<%= request.getContextPath() %>/login.do">로그인</a></li>
-            <li class="header-bar__menu"><a href="#">마이페이지</a></li>
-            <li class="header-bar__menu"><a href="<%= request.getContextPath() %>/insertMember.do">회원가입</a></li>
-            <li class="header-bar__menu"><a href="#">고객센터</a></li>
-       </ul>
-    </c:if>
-    <c:if test="${not empty sessionScope.loginUser}">
-       <ul class="header-bar">
-            <li class="header-bar__menu"><a href="#"><c:out value="${loginUser.user_nickName }"></c:out></a></li>
-            <li class="header-bar__menu"><a href="#">마이페이지</a></li>
-            <li class="header-bar__menu"><a href="<%= request.getContextPath() %>/logout.do">로그아웃</a></li>
-            <li class="header-bar__menu"><a href="#">고객센터</a></li>
-       </ul>
-    </c:if>
-    </header>
-    <main>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../../index/jsp"><img src="../cinema/images/Tm_rogo_02 .png" width="200px" height="200px"></a>
-      <!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button> -->
-          
-            <div class="collapse navbar-collapse" id="navbarColor03";">
-              <ul class="navbar-nav mr-auto">
-                <li class="dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">영화정보<b class="caret"></b></a>
-                  <div class="dropdown-menu">
-                   <a class="dropdown-item" href="../latestMovie/latestMovie.jsp">최신개봉작</a>
-                    <a class="dropdown-item" href="scheduledMovies.jsp">상영예정작</a>
-                  </div> 
-                </li>
-                <li class="dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">맛집극장<b class="caret"></b></a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="../cinema/cinema.jsp">친구</a>
-                    <a class="dropdown-item" href="../cinema/couple.jsp">연인</a>
-                    <a class="dropdown-item" href="../cinema/solo.jsp">혼자</a>
-                  </div> 
-                </li>
-                <li class="dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티<b class="caret"></b></a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">자유게시판</a>
-                    <a class="dropdown-item" href="../board/board.jsp">만남의광장</a>
-                  </div> 
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../goods/goods.jsp">굿즈</a>
-                </li>
-                	
-                <form class="navSearch">
-                    <div class="navSearchDiv">
-                      <input class="form-control" type="text" placeholder="영화 검색">
-                      <button class="navSearchBtn" type="submit">검색</button>
-                  </div>
-                </form>
-              </ul>
-            </div>
-          </nav>
+     <%@include file="../common/loginbar.jsp" %>
+		<main>
+		<%@include file="../common/header.jsp" %>
           
 
 		<div class="category">
