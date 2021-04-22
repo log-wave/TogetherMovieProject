@@ -157,7 +157,7 @@ ul{list-style:none;}
 </head>
 <body>
 	
-    
+    <!-- 모든 파일에 들어가는 헤더파일 -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="../../index.jsp"><img src="<c:url value='/' />/contents/cinema/images/Tm_rogo_02 .png" width="200px" height="200px"></a>
       <!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
