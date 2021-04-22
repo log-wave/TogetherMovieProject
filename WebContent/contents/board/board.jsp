@@ -20,8 +20,6 @@
 		<main>
 		<%@include file="../common/header.jsp" %>
     	
-    	
-    	
     
 	    	<div class="local-box">
 				<div class="local-box1">
