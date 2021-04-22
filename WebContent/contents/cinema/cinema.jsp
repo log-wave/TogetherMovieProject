@@ -74,19 +74,6 @@
     
  
 
-    <footer>
-        <div class="footer-logo">
-            <img src="images/Tm_rogo_01.png"/>
-        </div>
-        <div class="footer-write">
-                <span>
-                    서울특별시 강남구 역삼동<br>
-                TEL : 02-1111-2222 | FAX : 02-1111-2223 | togethermovie@gmail.com<br>
-                    Copyright 2021. togetherMOVIE All rights reserved. 
-                </span>
-        </div>
-        </div>
-        
-    </footer>
+    <%@include file="../common/footer.jsp" %>
 </body>
 </html>
