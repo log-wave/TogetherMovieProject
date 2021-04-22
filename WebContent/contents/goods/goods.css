@@ -1,148 +1,57 @@
-@charset "UTF-8";
-
-
-
-.goods-list{
-	width:100%;
-	display:flex;
-	justify-content: center;
-	align-items: center;
+#content_list h3{
+	float: left;
+	margin-left: 600px;
+}
+#content_list p{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+.items{
+	width: 230px;
+	float: left;
+	margin: 30px 0 0 65px;
 	
+}
+.items li img{
+	border: 1px solid #333;
+}
+.items li img:hover{
+ 	transform:scale(1.04);
+	transition: transform .5s;
+
+}
+.a{
+	font-weight: bold;
+	color: black;
+	margin-top: 5px;
+}
+.b{
+	font-weight: bold;
+	color: black;
+	margin-top: 5px;
+}
+.b span{
+	color: #a26f59;
+}
+.c{
+	font-size: 10px;
+	margin-top: 5px;
+	line-height: 150%;
+}
+.d{
+	font-size: 13px;
+}
+.d span{
+	color: #a26f59;
+}
+ul{
+	padding: 0;
+	list-style: none;
+}
+.list h4{
+	bold;
+	size: 20px;
 	
-	
-}
-
-.goods-list1{
-	width:240px;
-	height:50px;
-	font-size: 11pt;
-    cursor: pointer;
-    background-color: rgb(102, 102, 102);
-    color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;	
-}
-
-.goods-list2{
-	width:240px;
-	height:50px;
-	font-size: 11pt;
-    cursor: pointer;
-    background-color: #E2E2E2;
-    color:black;
-    display: flex;
-    justify-content: center;
-    align-items: center;	
-}
-    
-
-
-
-
-.con{
-	
-	width:100%;
-	margin:auto;
-	margin-top: 50px;
-}
-
-
-
-
-.cell {
-    float: left;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    
-}
-.cell:hover { border-color:#333;}
-
-.product-price{
-	margin-top:20px;
-}
-
-
-
-.row::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-.img-box > img {
-    display: block;
-    width: 100%;
-}
-/*커스텀*/
-
-
-
-.list > ul > li {
-    width: calc(100% / 6);
-}
-
-.list > ul > li {
-    padding: 0 10px;
-}
-.list > ul {
-    margin: 0 -10px;
-}
-
-.list > ul > li > .product-name {
-    text-align: Center;
-    font-weight: bold;
-}
-.list > ul > li:hover > .product-name {
-    text-decoration: underline;
-}
-.list > ul > li > .product-price {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-.list > ul > li > .product-price::after {
-    content: "원";
-    font-size: 1rem;
-    font-weight:normal;
-}
-.row li { float:left; margin:20px 20px 20px 23px; position:relative; width:350px; height:320px; border:1px solid #d9d9d9;}
-.row li:hover { border-color:#333;}
-.row dl { padding:374px 0 0 0;}
-.row dt { padding:11px 10px 14px; border-top:1px solid #f0f0f0;}
-.row dt a { font-size:16px; color:#1a1a1a;}
-.row .price { padding:0 0 0 10px; font-size:21px; color:#1a1a1a; font-weight:bold;}
-.row .btm { position:absolute; left:0; bottom:0; width:100%; border-top:1px solid #f0f0f0; background:#fafafa;}
-.row .btm div { float:left; width:50%; height:30px; line-height:30px; text-align:center; font-size:12px; color:#767676;}
-.row .btm div a { font-size:12px; color:#767676;}
-.row .btm div a img { padding:0 4px 0 0;}
-.row .img { position:absolute; left:0; top:0;}
-
-@media (max-width: 800px) {
-    .list > ul > li {
-        width: calc(100% / 5);
-    }
-}
-
-@media (max-width: 650px) {
-    .list > ul > li {
-        width: calc(100% / 4);
-    }
-}
-
-@media (max-width: 500px) {
-    .list > ul > li {
-        width: calc(100% / 3);
-    }
-}
-
-@media (max-width: 400px) {
-    .list > ul > li {
-        width: calc(100% / 2);
-    }
-}
-
-@media (max-width: 300px) {
-    .list > ul > li {
-        width: calc(100% / 1);
-    }
 }
