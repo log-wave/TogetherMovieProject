@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <head>
 	<!-- 04.22 12:48  서만가 접속 완료 주석 -->
+	<!-- 연동 완료!  -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
