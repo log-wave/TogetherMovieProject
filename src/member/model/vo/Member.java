@@ -1,4 +1,5 @@
 package member.model.vo;
+//패키지 변경
 
 import java.sql.Date;
 

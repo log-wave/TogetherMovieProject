@@ -1,4 +1,5 @@
 package member.model.dao;
+//패키지 변경
 
 
 import static db.JdbcUtil.close;
