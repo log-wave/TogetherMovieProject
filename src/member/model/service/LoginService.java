@@ -1,4 +1,4 @@
-package svc;
+package member.model.service;
 
 
 import static db.JdbcUtil.close;
@@ -6,8 +6,8 @@ import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
 
-import model.dao.LoginDAO;
-import model.vo.Member;
+import member.model.dao.LoginDAO;
+import member.model.vo.Member;
 
 public class LoginService {
 

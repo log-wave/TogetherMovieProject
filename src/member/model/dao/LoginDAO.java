@@ -1,4 +1,4 @@
-package model.dao;
+package member.model.dao;
 
 
 import static db.JdbcUtil.close;
@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.vo.Member;
+import member.model.vo.Member;
 public class LoginDAO {
 	
 	private static LoginDAO loginDAO;
