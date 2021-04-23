@@ -1,5 +1,5 @@
 package member.model.dao;
-//��Ű�� ����
+//좀 대세연
 
 
 import static db.JdbcUtil.close;
