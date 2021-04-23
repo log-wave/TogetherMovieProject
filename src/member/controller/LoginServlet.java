@@ -1,5 +1,5 @@
 package member.controller;
-//ÆĞÅ°Áö º¯°æ
+//ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
 			
 			
 		}else if(result == 0 || result == -1) {
-			request.setAttribute("message", "ê°??…?•˜ì§? ?•Š?? ?•„?´?””?´ê±°ë‚˜, ?˜ëª»ëœ ë¹„ë?ë²ˆí˜¸?…?‹ˆ?‹¤.");
+			request.setAttribute("message", "ì•„ì´ë””ë‚˜ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		

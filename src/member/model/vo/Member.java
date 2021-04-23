@@ -1,5 +1,5 @@
 package member.model.vo;
-//ÆÐÅ°Áö º¯°æ
+//ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 import java.sql.Date;
 
@@ -11,9 +11,38 @@ public class Member {
 	private String user_name;
 	private String user_nickName;
 	private String user_email;
+	private String address;
 	private Date hireDate;
 	private int grade;
+	private String status;
 	
+	public Member() {}
+	public Member(int user_no, String user_id, String user_password, String user_name, String user_nickName,
+			String user_email, Date hireDate, int grade, String status, String address) {
+		super();
+		this.user_no = user_no;
+		this.user_id = user_id;
+		this.user_password = user_password;
+		this.user_name = user_name;
+		this.user_nickName = user_nickName;
+		this.user_email = user_email;
+		this.hireDate = hireDate;
+		this.grade = grade;
+		this.status = status;
+		this.address = address;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public int getUser_no() {
 		return user_no;
 	}

@@ -1,5 +1,5 @@
 package member.model.dao;
-//∆–≈∞¡ˆ ∫Ø∞Ê
+//ÔøΩÔøΩ≈∞ÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ
 
 
 import static db.JdbcUtil.close;
@@ -30,18 +30,23 @@ public class LoginDAO {
 	}
 
 	public int doLogin(String userId, String userPassword) {
-		
+		System.out.println("daoÎèÑÏ∞©");
 		int result = -1;
 		PreparedStatement pstmt =  null;
 		ResultSet rs = null;
 		try {
 			
-			pstmt = con.prepareStatement("SELECT USERS_PWD FROM USERS WHERE USERS_ID=?");
+			pstmt = con.prepareStatement("SELECT USERS_PWD FROM USERS WHERE USERS_ID=? AND STATUS = 'Y'");
 			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
+			System.out.println(userPassword);
 			
 			if(rs.next()) {
+				System.out.println(rs.getString("USERS_PWD"));
+				
 				if(rs.getString("USERS_PWD") != null && rs.getString("USERS_PWD").equals(userPassword)) {
+					String pwd= rs.getString("USERS_PWD");
+					System.out.println(pwd + " / " + userPassword);
 					result = 1;
 				}else {
 					result = 0;
@@ -84,8 +89,10 @@ public class LoginDAO {
 				member.setUser_name(rs.getString("USERS_NAME"));
 				member.setUser_nickName(rs.getString("USERS_NICKNAME"));
 				member.setUser_email(rs.getString("USERS_EMAIL"));
+				member.setAddress(rs.getString("USERS_ADDRESS"));
 				member.setHireDate(rs.getDate("HIREDATE"));
 				member.setGrade(rs.getInt("GRADE"));
+				member.setStatus(rs.getString("STATUS"));
 				
 				
 			}
