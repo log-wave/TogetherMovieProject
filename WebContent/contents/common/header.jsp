@@ -168,10 +168,10 @@ ul{list-style:none;}
             <div class="collapse navbar-collapse" id="navbarColor03;">
               <ul class="navbar-nav mr-auto">
                 <li class="dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">영화정보<b class="caret"></b></a>
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<%= request.getContextPath()%>/contents/movieInfo_Board/boxoffice/boxOffice.jsp" role="button" aria-haspopup="true" aria-expanded="false">영화정보<b class="caret"></b></a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">최신개봉작</a>
-                    <a class="dropdown-item" href="#">상영예정작</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath()%>/contents/movieInfo_Board/latestMovie/latestMovie.jsp">최신개봉작</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath()%>/contents/movieInfo_Board/ScheduledMovie/scheduledMovie.jsp">상영예정작</a>
                   </div> 
                 </li>
                 <li class="dropdown">

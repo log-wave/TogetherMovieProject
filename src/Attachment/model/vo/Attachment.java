@@ -9,12 +9,23 @@ public class Attachment {
 	private int fileLevel;
 	private int downloadCount;
 	private String status;
+	private int recom_no;
 	
 	
 	public Attachment() {}
 
+	
+
+	public Attachment(int boardId, String changeName) {
+		super();
+		this.boardId = boardId;
+		this.changeName = changeName;
+	}
+
+
+
 	public Attachment(int fileId, int boardId, String originName, String changeName, String filePath, int fileLevel,
-			int downloadCount, String status) {
+			int downloadCount, String status, int recom_no) {
 		super();
 		this.fileId = fileId;
 		this.boardId = boardId;
@@ -24,7 +35,10 @@ public class Attachment {
 		this.fileLevel = fileLevel;
 		this.downloadCount = downloadCount;
 		this.status = status;
+		this.recom_no = recom_no;
 	}
+
+
 
 	public int getFileId() {
 		return fileId;
@@ -90,12 +104,26 @@ public class Attachment {
 		this.status = status;
 	}
 
+	public int getRecom_no() {
+		return recom_no;
+	}
+
+
+
+	public void setRecom_no(int recom_no) {
+		this.recom_no = recom_no;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Attachment [fileId=" + fileId + ", boardId=" + boardId + ", originName=" + originName + ", changeName="
 				+ changeName + ", filePath=" + filePath + ", fileLevel=" + fileLevel + ", downloadCount="
-				+ downloadCount + ", status=" + status + "]";
+				+ downloadCount + ", status=" + status + ", recom_no=" + recom_no + "]";
 	}
-	
+
+
+
 	
 }

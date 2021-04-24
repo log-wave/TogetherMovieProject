@@ -22,12 +22,9 @@
 							00-000-0000<br> 이메일 0000000@naver.com│ 상담시간
 							오전10시~오후17시│개인정보보호책임자 홍 길 동<br> <br> copyright(c) <font style="color: white; font-weight: bold">TOGETHER MOVIE</font>
 							All right reserved
-                	
                 </span>
         </div>
-       
-        
-    </footer>
+</footer>
 
 </body>
 </html>
