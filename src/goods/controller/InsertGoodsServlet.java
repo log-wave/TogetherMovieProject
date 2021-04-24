@@ -44,7 +44,6 @@ public class InsertGoodsServlet extends HttpServlet {
 			if(!f.exists()) {
 				f.mkdirs();
 			}
-			
 		}
 		
 	}
