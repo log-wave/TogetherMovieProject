@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%
+	//이미지를 받아온 값을 선언하는 부분;
+%>
 
 <!DOCTYPE html>
 <html>
@@ -192,5 +194,22 @@
         <%@include file="contents/common/footer.jsp" %>
     </div>
     
+    
+    <script>
+    	$(function(){
+    		//페이지 로딩시 한번만 실행(메인 슬라이드의 이미지들)
+    		$.ajax({
+    			url:'ImageLoad.do',
+    			type: 'post',
+    			success: function(data){
+    				console.log('ImageLoad 실행');
+    				console.log(data);
+    			},
+    			error: function(data){
+    				console.log('ImageLoad 실행 실패');
+    			}
+    		});
+    	});
+    </script>
 </body>
 </html>
