@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 
 <!DOCTYPE html>
@@ -16,19 +17,12 @@
     
 	<script src="contents/main/js/jquery-3.6.0.min.js"></script>
 	<script src="contents/main/js/lightslider.js"></script>
-    <title>자유게시판 초안</title>
     
-    <script>
-	$(document).ready(function() {
-		$('#autoWidth').lightSlider({
-			autoWidth : true,
-			loop : true,
-			onSliderLoad : function() {
-				$('#autoWidth').removeClass('cS-hidden');
-			}
-		});
-	});
-</script>
+<style>
+	.foot{
+		margin-top: 200px;
+	}
+</style>
 </head>
 
 <body>
@@ -38,8 +32,12 @@
 		<!-- 상품 -->
 	<section id="content_list">
 		<div class="list">
-			<h4>상품 리스트</h4>
-			<p> 판매자추천순 | 인기순 | 최신순</p>
+			<div class="middle-subtitle">
+				<div><span>상품 목록</span></div>
+			</div>
+			<c:if test="${empty sessionScope.loginUser}">
+			<button> 상품추가 </button>
+			</c:if>
 			<div class="clear"></div>
 			
 			<ul	class="items">
@@ -137,22 +135,15 @@
 				<li class="b"> 100,000원 <span>24%</span></li>
 				<li class="c">&quot; 상품 상세 내용 !! &quot; 추가 설명!!..</li>
 				<li class="d">리뷰<span>2</span> 평점 <span>4.5/5</span></li>
-
 			</ul>
-			
-			
-			
+		</div>
+		<div class="mar">
 		</div>
 		<div class="clear"></div>
 	</section>
-
-
 	</main>
-
-
-
-
+	<div class="foot">
 	<%@include file="../common/footer.jsp" %>
-
+</div>
 </body>
 </html>
