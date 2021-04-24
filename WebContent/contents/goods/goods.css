@@ -1,8 +1,31 @@
 #content_list h3{
 	float: left;
-	margin-left: 600px;
+	margin-left: 570px;
+	font-size: 30px;
 }
-#content_list p{
+.middle-subtitle{
+	width:100%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.middle-subtitle>div{
+	
+	width:300px;
+	height:48px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(102, 102, 102);
+	color:white;
+	font-size: 11pt;
+    cursor: pointer;
+    margin-left: 100px;
+    border-radius: 10px;
+	
+}
+#content_list button{
 	float: right;
 }
 .clear{
