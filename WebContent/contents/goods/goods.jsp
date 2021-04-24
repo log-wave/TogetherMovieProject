@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,8 +33,8 @@
 			<div class="middle-subtitle">
 				<div><span>상품 목록</span></div>
 			</div>
-			<c:if test="${empty sessionScope.loginUser}">
-			<button> 상품추가 </button>
+			<c:if test="${sessionScope.loginUser.user_id == 'admin'}">
+					<button onclick="location.href='<%= request.getContextPath()%>/writeGoodsForm.gs'"> 상품추가 </button>
 			</c:if>
 			<div class="clear"></div>
 			

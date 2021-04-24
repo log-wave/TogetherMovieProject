@@ -21,12 +21,5 @@
         <url-pattern>*.png</url-pattern>
         <url-pattern>*.ico</url-pattern>
         <url-pattern>*.swf</url-pattern>
-        
     </servlet-mapping>
-  
-
-  
-  
-  
-  
 </web-app>
