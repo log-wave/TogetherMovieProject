@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import = "java.util.ArrayList, mainpage.model.vo.*"%>
 <%
-	//이미지를 받아온 값을 선언하는 부분;
+	//값을 받아오는 부분
+	ArrayList<MainPage> mList = (ArrayList<MainPage>)request.getAttribute("mList");
+	String msg = "오늘의 추천 영화가 없습니다.";
+	if(request.getAttribute("msg") != null){
+		msg = (String)request.getAttribute("msg");
+	}
 %>
 
 <!DOCTYPE html>
@@ -110,7 +116,8 @@
 
 
 
-
+		<%if(mList != null){ %>
+		<!-- 이미지를 받아와서 구현을 해야하는데 일단 이미지를 넣을게 없으니 writer부터 -->
 		<div class="mid">
 			<div class="mid-item">
 				<div class="mid-title">
@@ -123,66 +130,12 @@
 					★★★☆☆
 				</div>
 			</div>
-			<div class="mid-item">
-				<div class="mid-title">
-					추천!
-				</div>
-				<div class="mid-img">
-					<img src="contents/main/img/2.jpg">
-				</div>
-				<div class="mid-star">
-					★★★★★
-				</div>
-			</div>
-			<div class="mid-item">
-				<div class="mid-title">
-					추천!
-				</div>
-				<div class="mid-img">
-					<img src="contents/main/img/3.jpg">
-				</div>
-				<div class="mid-star">
-					★★★★☆
-				</div>
-			</div>
         </div>
-        <div class="mid">
-			<div class="mid-item">
-				<div class="mid-title">
-					추천!
-				</div>
-				<div class="mid-img">
-					<img src="contents/main/img/4.jpg">
-				</div>
-				<div class="mid-star">
-					★★★★☆
-				</div>
-			</div>
-			<div class="mid-item">
-				<div class="mid-title">
-					추천!
-				</div>
-				<div class="mid-img">
-					<img src="contents/main/img/5.jpg">
-				</div>
-				<div class="mid-star">
-					★★★★☆
-				</div>
-			</div>
-			<div class="mid-item">
-				<div class="mid-title">
-					추천!
-				</div>
-				<div class="mid-img">
-					<img src="contents/main/img/6.jpg">
-				</div>
-				<div class="mid-star">
-					★★★★★
-				</div>
-			</div>
-        </div>	
+        <%}else{ %>
+        <label><%= msg %></label>
+        <%} %>
     
-
+		if()
     
     </main>
     

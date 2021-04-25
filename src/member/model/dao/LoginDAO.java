@@ -41,7 +41,7 @@ public class LoginDAO {
 			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			System.out.println(userPassword);
-			
+			System.out.println(con);
 			if(rs.next()) {
 				System.out.println(rs.getString("USERS_PWD"));
 				
