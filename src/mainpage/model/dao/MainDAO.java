@@ -64,7 +64,7 @@ public class MainDAO {
 			System.out.println(rset);
 			
 			list = new ArrayList<MainPage>();
-			//FILE_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, STATUS, MOVIE_SCORE, MOVIE_TITLE
+			// FILE_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, STATUS, MOVIE_SCORE, MOVIE_TITLE
 			while(rset.next()) {
 				MainPage mp = new MainPage(rset.getInt("FILE_NO"),
 										rset.getString("ORIGIN_NAME"),

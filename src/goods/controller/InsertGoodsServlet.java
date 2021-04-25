@@ -2,6 +2,8 @@ package goods.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.oreilly.servlet.MultipartRequest;
+
+import common.MyFileRenamePolicy;
+import goods.model.vo.Goods;
 
 /**
  * Servlet implementation class InsertGoodsServlet
@@ -44,6 +51,32 @@ public class InsertGoodsServlet extends HttpServlet {
 			if(!f.exists()) {
 				f.mkdirs();
 			}
+			
+			
+			MultipartRequest multipartRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
+	         
+	         ArrayList<String> saveFiles = new ArrayList<String>(); 	// 바뀐 이름의 파일을 저장할 용도
+	         ArrayList<String> originFiles = new ArrayList<String>();	// 원본 이름의 파일을 저장할 용도
+	         
+	         Enumeration<String> files = multipartRequest.getFileNames(); // getFilenames() : 폼에서 전송된 파일 리스트들의 name 반환
+	         while(files.hasMoreElements()) { // 다음 요소가 있으면
+	        	 String name = files.nextElement(); // 값 뽑기
+//	        	 System.out.println(name); 	// 순서가 반대로 나온다
+	        	 
+	        	 if(multipartRequest.getFilesystemName(name) != null) {
+//	        		 getFilesystemName(name) : MyFileRenamePolicy.rename()에서 작성한대로 rename된 파일명 반환
+	        		 saveFiles.add(multipartRequest.getFilesystemName(name));
+	        		 originFiles.add(multipartRequest.getOriginalFileName(name));
+	        		 // multipartRequest.getOriginalFileName(name) : 실제 업로드된 파일 이름 반환
+	        	 }
+	         }
+			
+	         String title = multipartRequest.getParameter("title");
+	         String price = multipartRequest.getParameter("price");
+	         String content = multipartRequest.getParameter("content");
+	         
+	         Goods g = new Goods(); // 굿즈 제목
+			
 		}
 		
 	}

@@ -112,10 +112,6 @@
 		
 		</div>
 				
-
-
-
-
 		<%if(mList != null){ %>
 		<!-- 이미지를 받아와서 구현을 해야하는데 일단 이미지를 넣을게 없으니 writer부터 -->
 		<div class="mid">
@@ -135,7 +131,6 @@
         <label><%= msg %></label>
         <%} %>
     
-		if(loginUser.)
     
     </main>
     
