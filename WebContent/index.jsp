@@ -135,7 +135,7 @@
         <label><%= msg %></label>
         <%} %>
     
-		if()
+		if(loginUser.)
     
     </main>
     
