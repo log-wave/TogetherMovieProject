@@ -187,7 +187,7 @@ ul{list-style:none;}
                   <div class="dropdown-menu">
                   
                     <a class="dropdown-item" href="#">자유게시판</a>
-                    <a class="dropdown-item" href="<%= request.getContextPath() %>/contents/board/board.jsp">만남의광장</a>
+                    <a class="dropdown-item" href="<%= request.getContextPath() %>/contents/group/group.jsp">만남의광장</a>
                   </div> 
                 </li>
                 <li class="nav-item">

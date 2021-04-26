@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*"%>
-<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <% 
 	ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list");
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
@@ -9,6 +10,9 @@
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
 	int endPage = pi.getEndPage();
+
+	System.out.println(list);
+	System.out.println(pi);
 %>
 <!DOCTYPE html>
 <html>
@@ -79,7 +83,7 @@
     
 	    	<div class="local-box">
 				<div class="local-box1">
-					<span>지역1 설명</span>
+					<span>서울/경기</span>
 				</div>
 				<div class="local-box2">
 					<span>지역1 설명</span>
@@ -235,7 +239,7 @@
 				$(this).parent().css('background', 'none');
 			}, 'click':function(){
 				var num = $(this).parent().children().eq(0).text();
-				location.href='<%= request.getContextPath() %>/detail.bo?bId=' + num;
+				location.href='<%= request.getContextPath() %>/detail.bo?bId=' + num + '&bCode=0';
 			}});
 		});
 	</script>

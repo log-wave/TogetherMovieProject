@@ -42,16 +42,16 @@
 						<div class="thumb" id="thumnail0">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>전체</em>
 								</span>
 							<p class="info" id="M_info0">전체</p>
 							</a>
 						</div>
 						<div class="thumb" id="thumnail1">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/contents/board/board.jsp">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역1</em>
 								</span>
 							<p class="info" id="M_info1">지역1</p>
@@ -60,7 +60,7 @@
 						<div class="thumb" id="thumnail2">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역2</em>
 								</span>
 							<p class="info" id="M_info2">지역2</p>
@@ -69,7 +69,7 @@
 						<div class="thumb" id="thumnail3">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역3</em>
 								</span>
 							<p class="info" id="M_info3">지역3</p>
@@ -82,7 +82,7 @@
 						<div class="thumb" id="thumnail4">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역4</em>
 								</span>
 							<p class="info" id="M_info4">지역4</p>
@@ -91,7 +91,7 @@
 						<div class="thumb" id="thumnail5">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역5</em>
 								</span>
 							<p class="info" id="M_info5">지역5</p>
@@ -100,7 +100,7 @@
 						<div class="thumb" id="thumnail6">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역6</em>
 								</span>
 							<p class="info" id="M_info6">지역6</p>
@@ -109,7 +109,7 @@
 						<div class="thumb" id="thumnail7">
 							<a href="">
 								<span class="thumbSpan">
-									<img src="contents/main/img/movie.jpg">
+									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역7</em>
 								</span>
 							<p class="info" id="M_info7">지역7</p>
