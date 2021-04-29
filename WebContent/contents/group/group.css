@@ -26,14 +26,14 @@
 	
 		.header{ margin-left: 30px; }
 	
-		.list{
+		.thumbList{
 			margin-top: 50px;
 			width:100%;
 			margin-left:150px;
 		}
 		
-		.list{
-			width: 950px; height: 730px;
+		.thumbList{
+			width: 925px; height: 730px;
 			border-bottom: 5px solid rgb(243, 156, 18);
 			border-top: 5px solid rgb(243, 156, 18); 
 			padding:10px;

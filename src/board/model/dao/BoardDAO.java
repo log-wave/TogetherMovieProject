@@ -40,39 +40,41 @@ public class BoardDAO {
 		return boardDAO;
 	}
 	
-	public void setConnection(Connection con) {
-		this.con=con;
+	public void setConnection(Connection conn) {
+		this.con=conn;
 	}
 
-	public int getListCount(Connection con) {
-		Statement stmt = null;
+	public int getListCount(Connection con, String bCate) {
+		System.out.println("getListCount DAO 출력");
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		int result = 0;
 		
 		String query = prop.getProperty("getListCount");
 		
 		try {
-			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
-			if(rset.next()) {
-				result = rset.getInt(1);
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, bCate);
+			rset = pstmt.executeQuery();
+			if(rset.next()) { // rset에 다음 값 있으면
+				result = rset.getInt(1); // 첫번째 값 가져옴
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
-		
+		System.out.println("getListCount DAO 끝 result : " + result);
 		return result;
 	}
 
-	public ArrayList<Board> selectList(Connection con, PageInfo pi) {
+	public ArrayList<Board> selectList(Connection con, PageInfo pi, String bCate) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Board> list = null;
-		
+		System.out.println("selectList DAO 출력");
 		String query = prop.getProperty("selectList");
 		
 		try {
@@ -80,8 +82,9 @@ public class BoardDAO {
 			int endRow = startRow + pi.getBoardLimit() - 1;
 		
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setString(1, bCate);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			
 			rset = pstmt.executeQuery();
 			list = new ArrayList<Board>();

@@ -1,6 +1,7 @@
 package board.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -32,7 +33,22 @@ public class BoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//int bCode = Integer.parseInt(request.getParameter("bCode"));
+		response.setCharacterEncoding("UTF-8");
+		
+		int bCode = Integer.parseInt(request.getParameter("bCode"));
+		String bCate = null;
+		switch(bCode) {
+			case 0: bCate = "서울"; break;
+			case 1: bCate = "경기"; break;
+			case 2: bCate = "지역2"; break;
+			case 3: bCate = "지역3"; break;
+			case 4: bCate = "지역4"; break;
+			case 5: bCate = "지역5"; break;
+			case 6: bCate = "지역6"; break;
+			case 7: bCate = "제주"; break;
+		}
+		System.out.println("bCode : " + bCode);
+		System.out.println("bCate : " + bCate);
 		
 		BoardService bService = new BoardService();
 		
@@ -44,8 +60,8 @@ public class BoardListServlet extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = bService.getListCount();
-		System.out.println("BoardListServlet listCount : " + listCount);
+		listCount = bService.getListCount(bCate);
+		System.out.println("listCount" + listCount);
 		
 		currentPage = 1;
 		
@@ -65,20 +81,21 @@ public class BoardListServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(currentPage, listCount, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		ArrayList<Board> list = bService.selectList(pi);
-		System.out.println(list);
-		System.out.println(pi);
+		ArrayList<Board> list = bService.selectList(pi, bCate);
+		
 		String page = null;
 		if(list != null) {
-			page = "contents/board/board0.jsp";
+			page = "contents/board/board.jsp";
 			request.setAttribute("list", list);
 			request.setAttribute("pi", pi);
+			request.setAttribute("bCate", bCate);
 		} else {
 			page = "contents/common/errorPage.jsp";
 			request.setAttribute("msg", "게시판 조회에 실패하였습니다.");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
+		
 	}
 
 	/**

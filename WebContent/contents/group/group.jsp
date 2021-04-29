@@ -10,12 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../cinema/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="group.css" />
+    <link rel="stylesheet" type="text/css" href="group.css?ver=1.0" />
     
     
 	<script src="contents/main/js/jquery-3.6.0.min.js"></script>
 	<script src="contents/main/js/lightslider.js"></script>
-    <title>그룹게시판 초안</title>
+    <title>만남의 광장</title>
     
     
 </head>
@@ -28,8 +28,8 @@
     	 <div id="mainLayer">
     	 <!-- div 안닫혀 있던것 수정 -->
     	 	<div class="header">
-				<span id="heading">지역1</span>
-				<span id="secondHeading">지역1 설명</span>
+				<span id="heading">만남의 광장</span>
+				<span id="secondHeading">만남의광장 설명</span>
 			</div>
 			
 			<br>
@@ -37,28 +37,28 @@
 			<br>
 	
 			<section>
-				<div class="list">
+				<div class="thumbList">
 					<div class='thumbnail'>
 						<div class="thumb" id="thumnail0">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=0">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
-									<em>전체</em>
+									<em>서울</em>
 								</span>
-							<p class="info" id="M_info0">전체</p>
+							<p class="info" id="M_info0">서울</p>
 							</a>
 						</div>
 						<div class="thumb" id="thumnail1">
-							<a href="<%= request.getContextPath() %>/contents/board/board.jsp">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=1">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
-									<em>지역1</em>
+									<em>경기</em>
 								</span>
-							<p class="info" id="M_info1">지역1</p>
+							<p class="info" id="M_info1">경기</p>
 							</a>
 						</div>
 						<div class="thumb" id="thumnail2">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=2">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역2</em>
@@ -67,7 +67,7 @@
 							</a>
 						</div>
 						<div class="thumb" id="thumnail3">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=3">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역3</em>
@@ -80,7 +80,7 @@
 					
 					<div class='thumbnail'>
 						<div class="thumb" id="thumnail4">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=4">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역4</em>
@@ -89,7 +89,7 @@
 							</a>
 						</div>
 						<div class="thumb" id="thumnail5">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=5">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역5</em>
@@ -98,7 +98,7 @@
 							</a>
 						</div>
 						<div class="thumb" id="thumnail6">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=6">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
 									<em>지역6</em>
@@ -107,12 +107,12 @@
 							</a>
 						</div>
 						<div class="thumb" id="thumnail7">
-							<a href="">
+							<a href="<%= request.getContextPath() %>/list.bo?bCode=7">
 								<span class="thumbSpan">
 									<img src="<%= request.getContextPath() %>/contents/main/img/movie.jpg">
-									<em>지역7</em>
+									<em>제주</em>
 								</span>
-							<p class="info" id="M_info7">지역7</p>
+							<p class="info" id="M_info7">제주</p>
 							</a>
 						</div>
 					</div>
@@ -126,6 +126,8 @@
     
     
     <%@include file="../common/footer.jsp" %>
+    
+    
    
 </body>
 </html>
