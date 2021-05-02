@@ -77,7 +77,7 @@
 						</tr>
 						<tr>
 							<th width="100px">가격</th>
-							<td colspan="3"><input type="text" size="15" name="price"></td>
+							<td colspan="3"><input type="number" size="15" name="price"></td>
 						</tr>
 						<tr>
 							<th width="100px">상품 설명</th>

@@ -1,4 +1,4 @@
-package board.controller;
+package goods.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class WriteGoodsForm
+ * Servlet implementation class WriteGoodsFormServlet
  */
 @WebServlet("/writeGoodsForm.gs")
-public class WriteGoodsForm extends HttpServlet {
+public class WriteGoodsFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WriteGoodsForm() {
+    public WriteGoodsFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

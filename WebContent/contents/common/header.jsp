@@ -191,7 +191,7 @@ ul{list-style:none;}
                   </div> 
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<%= request.getContextPath() %>/contents/goods/goods.jsp">굿즈</a>
+                  <a class="nav-link" id="goods">굿즈</a>
                 </li>
                 <li>
 	                <form class="navSearch">
@@ -205,5 +205,10 @@ ul{list-style:none;}
               </ul>
             </div>
           </nav>
+          <script>
+	        $('#goods').on('click', function () {
+				location.href="<%= request.getContextPath() %>/list.gs";
+			});
+          </script>
 </body>
 </html>

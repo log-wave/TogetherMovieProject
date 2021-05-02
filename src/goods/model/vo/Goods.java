@@ -2,22 +2,22 @@ package goods.model.vo;
 
 public class Goods {
 	
-	private int goods_no;
-	private String goods_name;
-	private int goods_price;
-	private int goods_count;
-	private String goods_contents;
+	private int goods_no; // 상품번호
+	private String goods_title; // 상품 제목
+	private int goods_price; // 상품 가격
+	private int goods_count; // 상품 갯수
+	private String goods_contents; // 상풍 내용
 	private String status;
 	
 	
 	public Goods() {}
 
 
-	public Goods(int goods_no, String goods_name, int goods_price, int goods_count, String goods_contents,
+	public Goods(int goods_no, String goods_title, int goods_price, int goods_count, String goods_contents,
 			String status) {
 		super();
 		this.goods_no = goods_no;
-		this.goods_name = goods_name;
+		this.goods_title = goods_title;
 		this.goods_price = goods_price;
 		this.goods_count = goods_count;
 		this.goods_contents = goods_contents;
@@ -35,13 +35,13 @@ public class Goods {
 	}
 
 
-	public String getGoods_name() {
-		return goods_name;
+	public String getGoods_title() {
+		return goods_title;
 	}
 
 
-	public void setGoods_name(String goods_name) {
-		this.goods_name = goods_name;
+	public void setGoods_title(String goods_title) {
+		this.goods_title = goods_title;
 	}
 
 
@@ -87,7 +87,7 @@ public class Goods {
 
 	@Override
 	public String toString() {
-		return "Goods [goods_no=" + goods_no + ", goods_name=" + goods_name + ", goods_price=" + goods_price
+		return "Goods [goods_no=" + goods_no + ", goods_name=" + goods_title + ", goods_price=" + goods_price
 				+ ", goods_count=" + goods_count + ", goods_contents=" + goods_contents + ", status=" + status + "]";
 	}
 

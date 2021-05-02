@@ -2,10 +2,9 @@ package board.model.service;
 
 import static db.JdbcUtil.*;
 
-import java.io.FileReader;
+
 import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.Properties;
 
 import board.model.dao.BoardDAO;
 import board.model.vo.Board;
@@ -34,6 +33,41 @@ public class BoardService {
 		close(con);
 		
 		return list;
+	}
+
+	public int getGoodsListCount() {
+		
+		Connection conn = getConnection();
+		int listCount = new BoardDAO().getGoodsListCount(conn);
+		
+		close(conn);
+		
+		return listCount;
+	}
+
+	public ArrayList<Board> selectGoodsList(PageInfo pi) {
+		Connection conn = getConnection();
+		
+		ArrayList<Board> list = new BoardDAO().selectGoodsList(conn, pi);
+		
+		close(conn);
+		
+		return list;
+	}
+
+	public int insertGoods(Board b) {
+		Connection conn = getConnection();
+		
+		int result = new BoardDAO().insertGoods(conn,b);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		
+		return result;
 	}
 
 }

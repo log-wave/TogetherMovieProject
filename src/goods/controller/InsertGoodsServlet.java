@@ -16,7 +16,9 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.oreilly.servlet.MultipartRequest;
 
 import common.MyFileRenamePolicy;
+import goods.model.service.GoodsService;
 import goods.model.vo.Goods;
+import goods.model.vo.GoodsInfo;
 
 /**
  * Servlet implementation class InsertGoodsServlet
@@ -37,49 +39,77 @@ public class InsertGoodsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		
-		if(ServletFileUpload.isMultipartContent(request)) { // ÀÎÄÚµù Å¸ÀÔÀÌ ¸ÖÆ¼ÆÄÆ®·Î ³Ñ¾î¿Ô´ÂÁö È®ÀÎÇÏ±â À§ÇØ 
-			int maxSize = 1024*1024*10;// Àü¼ÛÆÄÀÏ ¿ë·®;
-			String root = request.getSession().getServletContext().getRealPath("/");
+		if(ServletFileUpload.isMultipartContent(request)) { 
+			
+			int maxSize = 1024*1024*10; // ì „ì†¡íŒŒì¼ ìš©ëŸ‰ : 10Mbyte
+			String root = request.getSession().getServletContext().getRealPath("/"); // WebContentë¡œ ë„˜ì–´ê°€ê¸° ìœ„í•´
 			String savePath = root + "goods_uploadFiles/";
 			
-			// ¼­¹ö ¼³Á¤ µé¾î°¡¼­ Serve modules without publishing Ã¼Å©ÇÏ±â 
-			// ÆÄÀÏ °æ·Î ±×´ë·Î »ç¿ëÇÏ±âÀ§ÇØ
+			System.out.println(savePath);
 			
 			File f = new File(savePath);
-			if(!f.exists()) {
-				f.mkdirs();
-			}
-			
-			
-			MultipartRequest multipartRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
+	         if(!f.exists()) {
+	            f.mkdirs();
+	         }
+	        
 	         
-	         ArrayList<String> saveFiles = new ArrayList<String>(); 	// ¹Ù²ï ÀÌ¸§ÀÇ ÆÄÀÏÀ» ÀúÀåÇÒ ¿ëµµ
-	         ArrayList<String> originFiles = new ArrayList<String>();	// ¿øº» ÀÌ¸§ÀÇ ÆÄÀÏÀ» ÀúÀåÇÒ ¿ëµµ
+	        MultipartRequest multipartRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 	         
-	         Enumeration<String> files = multipartRequest.getFileNames(); // getFilenames() : Æû¿¡¼­ Àü¼ÛµÈ ÆÄÀÏ ¸®½ºÆ®µéÀÇ name ¹İÈ¯
-	         while(files.hasMoreElements()) { // ´ÙÀ½ ¿ä¼Ò°¡ ÀÖÀ¸¸é
-	        	 String name = files.nextElement(); // °ª »Ì±â
-//	        	 System.out.println(name); 	// ¼ø¼­°¡ ¹İ´ë·Î ³ª¿Â´Ù
+	        ArrayList<String> saveFiles = new ArrayList<String>(); 	// ë°”ë€ ì´ë¦„ì˜ íŒŒì¼ì„ ì €ì¥í•  ìš©ë„
+	        ArrayList<String> originFiles = new ArrayList<String>();	// ì›ë³¸ ì´ë¦„ì˜ íŒŒì¼ì„ ì €ì¥í•  ìš©ë„
+	        
+	        Enumeration<String> files = multipartRequest.getFileNames();
+	         while(files.hasMoreElements()) { // ë‹¤ìŒ ìš”ì†Œê°€ ìˆìœ¼ë©´
+	        	 String name = files.nextElement(); // ê°’ ë½‘ê¸°
 	        	 
 	        	 if(multipartRequest.getFilesystemName(name) != null) {
-//	        		 getFilesystemName(name) : MyFileRenamePolicy.rename()¿¡¼­ ÀÛ¼ºÇÑ´ë·Î renameµÈ ÆÄÀÏ¸í ¹İÈ¯
 	        		 saveFiles.add(multipartRequest.getFilesystemName(name));
 	        		 originFiles.add(multipartRequest.getOriginalFileName(name));
-	        		 // multipartRequest.getOriginalFileName(name) : ½ÇÁ¦ ¾÷·ÎµåµÈ ÆÄÀÏ ÀÌ¸§ ¹İÈ¯
 	        	 }
 	         }
+	        
+	        String title = multipartRequest.getParameter("title");
+	        int price = Integer.parseInt(multipartRequest.getParameter("price"));
+			String content = multipartRequest.getParameter("content");
 			
-	         String title = multipartRequest.getParameter("title");
-	         String price = multipartRequest.getParameter("price");
-	         String content = multipartRequest.getParameter("content");
+			Goods g = new Goods();
+			g.setGoods_title(title); // ìƒí’ˆì´ë¦„
+			g.setGoods_price(price);
+			g.setGoods_contents(content);
+			
+			ArrayList<GoodsInfo> fileList = new ArrayList<GoodsInfo>();
+	         for(int i = originFiles.size()-1; i >= 0; i--) { // ìˆœì„œëŒ€ë¡œ ë½‘ê¸° ìœ„í•œ forë¬¸
+	        	 GoodsInfo gi = new GoodsInfo();
+	        	 gi.setFilePath(savePath);
+	        	 gi.setOriginName(originFiles.get(i));
+	        	 gi.setChangeName(saveFiles.get(i));
+	        	 
+	        	 
+	        	 if(i == originFiles.size()-1) {
+	        		 gi.setFileLevel(0);
+	        	 } else {
+	        		 gi.setFileLevel(1);
+	        	 }
+	        	 
+	        	 fileList.add(gi);
+			}
 	         
-	         Goods g = new Goods(); // ±ÂÁî Á¦¸ñ
+			int result = new GoodsService().insertGoods(g, fileList);
 			
+			
+			if(result > 0 ) {
+				response.sendRedirect("list.gs");
+			} else {
+				request.setAttribute("msg", "ìƒí’ˆ ë“±ë¡ì— ì‹¤íŒ¨");
+				
+				for(int i = 0; i < saveFiles.size(); i++) {
+					File fail = new File(savePath + saveFiles.get(i));
+					fail.delete();
+				}
+			}
 		}
-		
-	}
+}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
