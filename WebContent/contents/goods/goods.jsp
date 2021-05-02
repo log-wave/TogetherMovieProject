@@ -24,9 +24,9 @@
 	<script src="contents/main/js/lightslider.js"></script>
     
 <style>
-	.foot{
+.foot{
 		margin-top: 200px;
-	}
+}
 	.middle-subtitle{
 	width:100%;
 	display:flex;
@@ -189,18 +189,22 @@ ul{
 			<% } else {%>
 				<% for(int i = 0; i < gList.size(); i++){ %>
 					<% Goods g = gList.get(i); %>
-						<input type="hidden" id="gNo" name="gNo" value="<%= g.getGoods_no() %>">
-							<% for(int j = 0; j < fList.size(); j++){ %>
-								<% GoodsInfo a = fList.get(j); %>
-								<% if(g.getGoods_no() == a.getGoodsNo()) {%>
-									<ul	class="items">
-										<li><img src="<%= request.getContextPath()%>/goods_uploadFiles/<%= a.getChangeName()%>"></li>
-										<li class="a"><%= g.getGoods_title() %></li>
-										<li class="b"> <%=g.getGoods_price() %></li>
-										<li class="c">&quot; <%=g.getGoods_contents() %></li>
-									</ul>
-								<% }  %>
-							<%} %>	
+					<div class="thumb-list">
+						<div>
+							<input type="hidden" id="gNo" name="gNo" value="<%= g.getGoods_no() %>">
+								<% for(int j = 0; j < fList.size(); j++){ %>
+									<% GoodsInfo a = fList.get(j); %>
+									<% if(g.getGoods_no() == a.getGoodsNo()) {%>
+										<ul	class="items">
+											<li><img class="imgs" src="<%= request.getContextPath()%>/goods_uploadFiles/<%= a.getChangeName()%>"></li>
+											<li class="a"><%= g.getGoods_title() %></li>
+											<li class="b"> <%=g.getGoods_price() %></li>
+											<li class="c">&quot; <%=g.getGoods_contents() %></li>
+										</ul>
+									<% }  %>
+								<%} %>	
+						</div>
+					</div>
 				<% } %>
 			<% } %>
 			</div>
@@ -213,16 +217,16 @@ ul{
 			
 			
 			</section>
-		<div class="foot">
 		</div>
-
 		</main>
+		<div class="foot">
 		<script>
-			$(function() {
-				$('.items').click(function () {
-					location.href="<%= request.getContextPath()%>/detail.gs";
-				});
+		$(function name() {
+			$('.thumb-list').click(function () {
+				var gNo = $(this).children().children().eq(0).val();
+				location.href='<%= request.getContextPath()%>/detail.gs?gNo=' + gNo;
 			});
+		});
 		</script>
 	 <%@include file="../common/footer.jsp" %>
 		

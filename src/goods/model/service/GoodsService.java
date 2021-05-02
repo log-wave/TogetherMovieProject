@@ -60,19 +60,38 @@ public int getGoodsListCount() {
 		return result1;
 	}
 
-//	public int insertGoods(Goods g) {
-//		Connection conn = getConnection();
-//		
-//		int result = new GoodsDAO().insertGoods(conn, g);
-//		
-//		if(result > 0) {
-//			commit(conn);
-//		} else {
-//			rollback(conn);
-//		}
-//		
-//		
-//		return result;
-//	}
+	public Goods selectGoods(int gNo) {
+		Connection conn = getConnection();
+		
+		GoodsDAO gDAO = new GoodsDAO();
+		
+		int result = gDAO.updateCount(conn, gNo);
+		
+		Goods goods = null;
+		if(result> 0) {
+			goods = gDAO.selectGoods(conn, gNo);
+			
+			if(goods != null) {
+				commit(conn);
+			} else {
+				rollback(conn);
+			}
+			
+		} else {
+			rollback(conn);
+		}
+		
+		return goods;
+	}
+
+	public ArrayList<GoodsInfo> selectGoodsInfo(int gNo) {
+		Connection conn = getConnection();
+		
+		ArrayList<GoodsInfo> list = new GoodsDAO().selectGoodsInfo(conn, gNo);
+		
+				
+		return list;
+	}
+
 
 }

@@ -220,5 +220,91 @@ public class GoodsDAO {
 		return result;
 	}
 
+	public int updateCount(Connection conn, int gNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateCount");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, gNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public Goods selectGoods(Connection conn, int gNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Goods g = null;
+		
+		String query = prop.getProperty("selectGoods");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, gNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				g = new Goods(rset.getInt("GOODS_NO"),
+									rset.getString("GOODS_NAME"),
+									rset.getInt("GOODS_PRICE"),
+									rset.getInt("GOODS_COUNT"),
+									rset.getString("GOODS_CONTENTS"),
+									rset.getString("STATUS"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return g;
+	}
+
+	public ArrayList<GoodsInfo> selectGoodsInfo(Connection conn, int gNo) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<GoodsInfo> list = null;
+		
+		String query = prop.getProperty("selectGoodsInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, gNo);
+			
+			rset = pstmt.executeQuery();
+			
+			list = new ArrayList<GoodsInfo>();
+			while(rset.next()) {
+				GoodsInfo gi = new GoodsInfo();
+				gi.setFileId(rset.getInt("FILE_ID"));
+				gi.setOriginName(rset.getString("ORIGIN_NAME"));
+				gi.setChangeName(rset.getString("CHANGE_NAME"));
+				gi.setFilePath(rset.getString("FILE_PATH"));
+				
+				list.add(gi);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+	
+		
+		return list;
+	}
+
 
 }
