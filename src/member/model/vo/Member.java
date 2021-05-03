@@ -16,7 +16,24 @@ public class Member {
 	private int grade;
 	private String status;
 	
+	
 	public Member() {}
+	/**
+	
+	*Member 객체의  기본 생성자 작성  
+	*@return getter의 경우 Member 맴버객체의  필드를 반환 , setter 의 경우 맴버 필드를 설정  
+	
+	*
+	*@date 2021.04.23
+	*@author 임 종 부 
+	*version= 1.0
+	
+	 */
+	
+	
+	
+	
+	
 	public Member(int user_no, String user_id, String user_password, String user_name, String user_nickName,
 			String user_email, Date hireDate, int grade, String status, String address) {
 		super();
@@ -31,6 +48,23 @@ public class Member {
 		this.status = status;
 		this.address = address;
 	}
+	
+	/**
+	
+	*Member 객체의  인스턴스 생성 
+	*@param 맴버 인스턴스의 필드 전체를 매개변수로 삽입  
+	
+	*
+	*@date 2021.04.23
+	*@author 임 종 부 
+	*version= 1.0
+	
+	 */
+	
+	
+	
+	
+	
 	public String getStatus() {
 		return status;
 	}
@@ -91,6 +125,30 @@ public class Member {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+	
+	
+	/**
+	
+	*Member 객체의 getter, setter메서드 
+	*@return getter의 경우 Member 맴버객체의  필드를 반환 , setter 의 경우 맴버 필드를 설정  
+	
+	*
+	*@date 2021.04.23
+	*@author 임 종 부 
+	*version= 1.0
+	
+	
+	
+	 */
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Member [user_no=" + user_no + ", user_id=" + user_id + ", user_password=" + user_password
@@ -99,6 +157,18 @@ public class Member {
 	}
 	
 	
+
+	/**
+	
+	*Member 객체가 담고 있는 정보를 문자열로 만들어 리턴하는 메서드 
+	*@return 각 맴버 인스턴스에 저장되어 있는 맴버 필드들을 String 값으로 반환 
+	*@date 2021.04.23
+	*@author 임 종 부 
+	*version= 1.0
+	
+	
+	
+	 */
 	
 
 }

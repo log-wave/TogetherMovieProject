@@ -43,7 +43,7 @@
        <ul class="header-bar">
             <li class="header-bar__menu"><a href="#">마이페이지</a></li>
             <li class="header-bar__menu"><a href="<c:url value='/' />/login.do">로그인</a></li>
-            <li class="header-bar__menu"><a href="insertMember.do">회원가입</a></li>
+            <li class="header-bar__menu"><a href="<c:url value='/' />/join.do">회원가입</a></li>
             <li class="header-bar__menu"><a href="#">고객센터</a></li>
        </ul>
     </c:if>
