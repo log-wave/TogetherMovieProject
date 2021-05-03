@@ -61,5 +61,9 @@
  
 
     <%@include file="../common/footer.jsp" %>
+    
+    <script>
+    	
+    </script>
 </body>
 </html>
